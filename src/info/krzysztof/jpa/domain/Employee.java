@@ -1,21 +1,35 @@
 package info.krzysztof.jpa.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.math.BigDecimal;
 
 /**
  * Created by krzysztof on 27.03.16.
  */
 @Entity
+@Table(name = "Pracownicy")
 public class Employee {
     @Id
     @GeneratedValue
     private long id;
+    @Column(name ="imie", nullable =false, length = 10)
     private String firstName;
+    @Column(name="nazwisko", columnDefinition = "VARCHAR(10) NOT NULL")
     private String lastName;
+    @Column(name= "pensja")
     private double salary;
-// alt + insert
+    @Column(precision = 10, scale = 2)
+    private BigDecimal salary2;
+
+    public BigDecimal getSalary2() {
+        return salary2;
+    }
+
+    public void setSalary2(BigDecimal salary2) {
+        this.salary2 = salary2;
+    }
+
+    // alt + insert
     public long getId() {
         return id;
     }
@@ -47,4 +61,6 @@ public class Employee {
     public void setSalary(double salary) {
         this.salary = salary;
     }
+
+
 }
