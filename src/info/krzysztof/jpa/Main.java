@@ -21,13 +21,12 @@ public class Main {
         employee.setFirstName("Jan");
         employee.setLastName("Nowak");
         employee.setSalary(3333.3);
-        employee.setSalary2(new BigDecimal("12345333333333333333.3"));
+        employee.setSalary2(new BigDecimal("12345.3"));
 
         entityManager.getTransaction().begin();
         entityManager.persist(employee);
 
         entityManager.getTransaction().commit();
-
 
         entityManager.close();
         entityManagerFactory.close();
